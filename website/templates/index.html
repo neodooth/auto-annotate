@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation">
+                <div class="navbar-header"><a class="navbar-brand">你好，{{ username }}</a></div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li id="show-undownloaded">
+                            <a href="#">未下载 <span id="undownloaded-number" class="badge"></span></a>
+                        </li>
+                        <li id="show-unannotated">
+                            <a href="#">未标注 <span id="unannotated-number" class="badge"
+                                                  style="background-color: red"></span></a>
+                        </li>
+                        <li id="show-annotated">
+                            <a href="#">已标注 <span id="annotated-number" class="badge"></span></a>
+                        </li>
+                        <li id="show-13000">
+                            <a href="#">13000</a>
+                        </li>
+                        <li id="start-working">
+                            <a href="{{ url_for('work') }}">开始干活</a>
+                        </li>
+                        <li id="show-submit-names">
+                            <a href="#">提交名单</a>
+                        </li>
+
+                    </ul>
+                    {#					<form class="navbar-form navbar-left" role="search">#}
+                    {#						<div class="form-group">#}
+                    {#							<input type="text" class="form-control">#}
+                    {#						</div>#}
+                    {#						<button type="button" class="btn btn-default">搜索</button>#}
+                    {#					</form>#}
+                    <ul class="nav navbar-nav navbar-right" style="margin-right: 0px">
+                        <ul class="nav navbar-nav" id="additional-list"></ul>
+                        <li>
+                            <a href="{{ url_for('signout') }}">注销</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+    <div id="info-panel" style="display: none">
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <div class="input-group">
+                    <span class="input-group-addon">中文名</span>
+                    <input type="text" class="form-control" id="info_panel_chinese_name" value="">
+                </div>
+            </div>
+            <div class="col-md-4 column">
+                <div class="input-group">
+                    <span class="input-group-addon">英文名</span>
+                    <input type="text" class="form-control" id="info_panel_english_name" value="">
+                </div>
+            </div>
+            <div class="col-md-3 column">
+                <div class="input-group">
+                    <span class="input-group-addon">微博</span>
+                    <input type="text" class="form-control" id="info_panel_weibo" value="">
+                </div>
+            </div>
+            <div class="col-md-2 column">
+                <button type="submit" class="btn btn-default" id="info_panel_submit_new_info">修改信息</button>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-10 column">
+                <div class="input-group">
+                    <span class="input-group-addon">简介</span>
+                    <input type="text" class="form-control" id="info_panel_introduction" value="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="item-panel">
+        {#        <div class="row clearfix">#}
+        {#            <div class="col-md-2 column">#}
+        {#                <img alt="" src="http://img4q.duitang.com/uploads/item/201409/03/20140903124628_kQfL5.jpeg" class="img-thumbnail">#}
+        {#                <div class="caption">#}
+        {#                    <p>tom_brady</p>#}
+        {#                <p><a href="#" class="btn btn-primary" role="button">Button</a>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        </div>#}
+    </div>
+
+{% endblock %}
+
+{% block custom_js %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}

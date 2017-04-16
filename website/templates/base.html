@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="ngsh">
+    <!--<link rel="icon" href="../../favicon.ico">-->
+
+    <title>标注系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    {% block custom_css %}{% endblock %}
+</head>
+<body>
+
+{#<div class="container" style="background-color: lightblue">#}
+{#{% if username %}#}
+{#<p>Hello, {{ username }}. <a href="{{ url_for('signout') }}">Signout</a></p>#}
+{#{% endif %}#}
+{#</div>#}
+
+<div class="container" style="background-color: lightcoral">
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for msg in messages %}
+            <p style="font-weight: bold">{{ msg }}</p>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+</div>
+
+<div class="container">
+{% block content %}{% endblock %}
+</div>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery-2.1.3.min.js') }}" ></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}" ></script>
+<script type="text/javascript">
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/communicator.js') }}" ></script>
+{% block custom_js %}{% endblock %}
+
+</body>
+</html>

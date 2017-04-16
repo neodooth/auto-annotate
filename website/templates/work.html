@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default navbar-static-top" role="navigation">
+				<div class="navbar-header"><a class="navbar-brand">加油，{{ username }}</a></div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+					    <li>
+                            <a id="name" style="color: #000000; font-size: 18px;"></a>
+						</li>
+                        <li>
+                            <a id="number" style="color: #000000; font-size: 16px;"></a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right" style="margin-right: 0px">
+                        <li id="save">
+                            <a href="#" style="background-color: lightblue">保存选中的图片</a>
+						</li>
+						<li id="delete">
+                            <a href="#" style="background-color: lightcoral">删除这个人</a>
+						</li>
+						<li id="unselect-all">
+                            <a href="#">反选全部</a>
+						</li>
+						<li id="select-all">
+                            <a href="#">选择全部</a>
+						</li>
+					    <li>
+							<a href="{{ url_for('index') }}">返回主页</a>
+						</li>
+						<li>
+							<a href="{{ url_for('signout') }}">注销</a>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+		</div>
+	</div>
+{#	<div id="item-panel1">#}
+{#	    <div class="row clearfix">#}
+{#            <div class="col-md-2 column">#}
+{#                <img alt="" src="http://img4q.duitang.com/uploads/item/201409/03/20140903124628_kQfL5.jpeg" class="img-thumbnail">#}
+{#                <input id="cb" type="checkbox"/>#}
+{##}
+{#            </div>#}
+{#            <div class="col-md-2 column">#}
+{#                <img alt="" src="http://pic5.bbzhi.com/qichebizhi/jisujingsaif1saichegaoqingbizhi/jisujingsaif1saichegaoqingbizhi_426749_3.jpg" class="img-thumbnail">#}
+{#                <input type="checkbox" value="" />#}
+{#            </div>#}
+{#        </div>#}
+{#	</div>#}
+	<div id="item-panel">
+
+    </div>
+
+{% endblock %}
+
+{% block custom_js %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/work.js') }}"></script>
+{% endblock %}
