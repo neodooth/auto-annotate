@@ -1,5 +1,12 @@
 # 标注网站
 
+## 截图
+
+![Alt text](/screenshots/screenshot1.png?raw=true "Broken link")
+![Alt text](/screenshots/screenshot2.png?raw=true "Broken link")
+![Alt text](/screenshots/screenshot3.png?raw=true "Broken link")
+![Alt text](/screenshots/screenshot4.png?raw=true "Broken link")
+
 分为website和downloader两部分
 
 website作为网站前端和数据存储
