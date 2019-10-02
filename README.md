@@ -1,3 +1,48 @@
+# Face image annotation website
+
+## Screenshots
+
+* List of annotated people
+
+![Alt text](/screenshots-en/screenshot1.png?raw=true "Broken link")
+
+* Images/Information of an annotated person
+
+![Alt text](/screenshots-en/screenshot2.png?raw=true "Broken link")
+
+* Interface for submitting names of people for annotating
+
+![Alt text](/screenshots-en/screenshot3.png?raw=true "Broken link")
+
+* The actual annotating interface in which valid images should be selected
+
+![Alt text](/screenshots-en/screenshot4.png?raw=true "Broken link")
+
+## Modules
+
+The website consists of two modules, each in a folder:
+
+- website: this module provides the frontend of the website (the annotation UI) and is responsible for storing the images
+- downloader: this module receives names of people for downloading images from the website module, and then downloads images, launches the face detector against images, crops faces from images, and finally send them all back to the website module
+
+## The website module
+
+Images/People have 4 states in this module, each stored in a folder:
+
+- unsubmitted: people whose names are submitted by the user but not transmitted to the downloader by the website module
+- unreceived: people whose names have been submitted to the downloader module and is waiting to be downloaded
+- unannotated: images of people received from the downloader, but are not annotated by the user
+- annotated: images that are annotated and ready for use
+
+## The downloader module
+
+- undownloaded: people that are received from the website but are not being downloaded
+- downloading: people whose images are being downloaded; may have incomplete images and can be paused/resumed/restarted
+- downloaded: people whose images are fully downloaded but not face-detected
+- detected: people whose images are face-detected and can be sent back to the website for annotating
+
+After all images of a person are transmitted to the website module, their images will be deleted
+
 # 标注网站
 
 ## 截图
